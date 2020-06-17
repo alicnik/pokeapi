@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
+const audio = new Audio('../assets/battle-theme.mp3')
 
 export const Battle = () => {
+  const [music, setMusic] = useState(audio)
+
+  useEffect(() => {
+    music.play()
+
+    return function cleanup() {
+      music.pause()
+      music.currentTime = 0
+      setMusic(audio)
+    }
+  }, [])
 
 
   return <>

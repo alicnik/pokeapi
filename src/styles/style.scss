@@ -42,6 +42,34 @@ main {
   }
 }
 
+
+#welcome{
+  height: 100vh;
+  background-color: var(--pokemon-red);
+
+
+.logo{
+  -webkit-animation: slide-in-elliptic-right-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-elliptic-right-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+h2{
+  text-align: center;
+  animation: blinker 1s linear infinite;
+  color: var(--pokemon-yellow);
+  font-family: var(--gamer-font);
+}
+
+}
+
+
+
+
+
+
+
+
+
 #pokedex {
   display: flex;
   font-family: var(--gamer-font);
@@ -213,8 +241,8 @@ main {
     var(--battle-stipe-background) 60px
   );
   opacity: 0.7;
-	-webkit-animation: swirl-in-fwd 2s ease-out both;
-	        animation: swirl-in-fwd 2s ease-out both;
+	-webkit-animation: swirl-in-fwd 4s ease-out both;
+	        animation: swirl-in-fwd 4s ease-out both;
 
 .opponent{
   width: 100vw;
@@ -514,6 +542,42 @@ li{
   100% {
     -webkit-transform: rotate(0) scale(.25);
             transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+@-webkit-keyframes slide-in-elliptic-right-fwd {
+  0% {
+    -webkit-transform: translateX(800px) rotateY(-30deg) scale(0);
+            transform: translateX(800px) rotateY(-30deg) scale(0);
+    -webkit-transform-origin: -100% 50%;
+            transform-origin: -100% 50%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) rotateY(0) scale(1);
+            transform: translateX(0) rotateY(0) scale(1);
+    -webkit-transform-origin: -1800px 50%;
+            transform-origin: -1800px 50%;
+    opacity: 1;
+  }
+}
+@keyframes slide-in-elliptic-right-fwd {
+  0% {
+    -webkit-transform: translateX(800px) rotateY(-30deg) scale(0);
+            transform: translateX(800px) rotateY(-30deg) scale(0);
+    -webkit-transform-origin: -100% 50%;
+            transform-origin: -100% 50%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) rotateY(0) scale(1);
+            transform: translateX(0) rotateY(0) scale(1);
+    -webkit-transform-origin: -1800px 50%;
+            transform-origin: -1800px 50%;
     opacity: 1;
   }
 }
