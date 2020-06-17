@@ -209,6 +209,163 @@
     var(--battle-stipe-background) 60px
   );
   opacity: 0.7;
+	-webkit-animation: swirl-in-fwd 2s ease-out both;
+	        animation: swirl-in-fwd 2s ease-out both;
+
+.opponent{
+  width: 100vw;
+  height: 33vh;
+  border: 1px black solid;
+  display: flex;
+
+
+  .opponent-stats{
+    margin: 5vh 0 0 1vw;
+    height: 11vh;
+    border: 3px solid black;
+    width: 49vw;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+
+
+    p{
+      width: 100%;
+      text-align: right;
+      font-family: var(--gamer-font);
+    }
+
+h3{
+  margin-left: 1vw;
+  width: 100%;
+  font-family: var(--gamer-font);
+}
+
+progress{
+  width: 100%;
+  margin: -1.5vh 1vw 0 10vw;
+}
+
+
+  }
+
+
+
+  .opponent-sprite{
+    height: 33vh;
+    width: 50vw;
+    display: flex;
+   
+
+    img{
+      margin-left: 15vw; 
+      width: 75%;
+    }
+  }
+}
+
+.player{
+  height: 67vh;
+  // background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
+  // flex-direction: column;
+
+.player-stats{
+  margin-top: 5vh;
+  margin-right: 1vw;
+  height: 11vh;
+  border: 3px solid black;
+  background-color: white;
+  width: 49vw;
+
+
+  h3{
+    margin-left: 1vw;
+    font-family: var(--gamer-font);
+  }
+
+  p{
+    text-align-last: right;
+    font-family: var(--gamer-font);
+  }
+
+  progress{
+    width: 90%;
+    margin: -2vh 0 0 4vw;
+    
+  }
+
+}
+
+.player-sprite{
+  height: 40vh;
+  width: 50vw;
+  display: flex;
+
+  img {
+    margin-top: 10vh;
+    margin-left: 10vw;
+    width: 75%;
+  }
+}
+
+.player-options{
+
+  
+  height: 27vh;
+  width: 100vw;
+  padding: 2vh;
+  display: flex;
+
+
+.options-announce{
+  border:3px solid black;
+  height: 23vh;
+  width: 66vw;
+  background-color: var(--battle-stipe-background);
+  font-family: var(--gamer-font);
+  padding: 2vw;
+  margin: 0;
+
+}
+
+.options-choices{
+  
+  border:3px solid black;
+  margin-left: 1vw;
+  width: 30vw;
+  display: flex;
+  font-family: var(--gamer-font);
+  
+li{
+  padding-left: 1vw;
+  height: 33%;
+  text-align: left;
+  background-color: var(--battle-stipe-background);
+
+ 
+  }
+
+  ul{
+    direction: rtl;
+    height: 100%;
+    width: 100%;
+    :hover {
+      text-decoration: underline;
+      list-style-position: inside;
+      list-style-image: url(../assets/pokeball.svg);
+  }
+}
+}
+
+}
+
+}
+
+
+
+
 }
 
 // Helpers
@@ -243,6 +400,35 @@
   }
   100% {
     transform: rotate(-1deg)
+  }
+}
+
+
+
+
+
+@-webkit-keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(.25);
+            transform: rotate(-540deg) scale(.25);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(.25);
+            transform: rotate(0) scale(.25);
+    opacity: 1;
+  }
+}
+@keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(.25);
+            transform: rotate(-540deg) scale(.25);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(.25);
+            transform: rotate(0) scale(1);
+    opacity: 1;
   }
 }
 
