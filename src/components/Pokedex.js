@@ -13,7 +13,7 @@ export const Pokedex = ({ allPokemon, setAllPokemon, chosenPokemon, setChosenPok
 
   function transferCard(clickedIndex) {
     setChosenPokemon(previousState => {
-      return allPokemon[clickedIndex].isChosen ? 
+      return allPokemon[clickedIndex].isChosen ?
         previousState.filter(pokemon => pokemon.index !== clickedIndex) :
         previousState.concat(allPokemon[clickedIndex])
     })
@@ -51,33 +51,35 @@ export const Pokedex = ({ allPokemon, setAllPokemon, chosenPokemon, setChosenPok
     return (
       <div ref={drop} className={chosenPokemon.length > 5 ? 'pokedex-choices pointer-events-none' : 'pokedex-choices'}>
         <h1>Pokedex</h1>
-        {allPokemon.map((pokemon, index) => ( pokemon.isChosen || 
+        {allPokemon.map((pokemon, index) => (pokemon.isChosen ||
           <PokemonCard key={index} pokemon={pokemon} index={index} handleClick={handleClick} />
         ))}
       </div>
     )
   }
-  
+
   const ChosenPokemon = () => {
     const drop = makeDroppable()
     return (
       <div ref={drop} className="chosen-pokemon">
         <div className="chosen-pokemon-header">
-          <img src="../assets/pokemon-bag.svg" alt="pokemon bag"/>
-          <h2>Your team</h2>
+          <span>
+            <img src="../assets/pokemon-bag.svg" alt="pokemon bag" />
+            <h2>Your team</h2>
+          </span>
         </div>
-        {allPokemon.map((pokemon, index) => ( pokemon.isChosen && 
+        {allPokemon.map((pokemon, index) => (pokemon.isChosen &&
           <PokemonCard key={index} pokemon={pokemon} index={index} handleClick={handleClick} />
         ))}
         {chosenPokemon.length < 1 && <div className="click-to-choose">Click or drag to add pokémon to your team.</div>}
-        {chosenPokemon.length > 5 && <Link to='/battle'><button onClick={handleSubmit}>Proceed</button></Link>}
+        {chosenPokemon.length > 5 && <Link to='/battle'><button className="battle-button" onClick={handleSubmit}>Proceed</button></Link>}
       </div>
     )
   }
 
-  return  (
+  return (
     <section id="pokedex">
-      <Pokedex/>
+      <Pokedex />
       <ChosenPokemon />
     </section>
   )
