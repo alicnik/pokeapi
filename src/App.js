@@ -4,6 +4,7 @@ import { Header } from './components/Header'
 import { Welcome } from './components/Welcome'
 import { Pokedex } from './components/Pokedex'
 import { Battle } from './components/Battle'
+import { Prefight } from './components/Prefight'
 
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -14,6 +15,7 @@ import './styles/style.scss'
 const App = () => {
   const [allPokemon, setAllPokemon] = useState([])
   const [chosenPokemon, setChosenPokemon] = useState([])
+  const [computerPokemon, setComputerPokemon] = useState([])
 
   useEffect(() => {
     axios
@@ -44,7 +46,22 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Welcome} />
             <Route path="/pokedex">
-              <Pokedex allPokemon={allPokemon} setAllPokemon={setAllPokemon} chosenPokemon={chosenPokemon} setChosenPokemon={setChosenPokemon} />
+              <Pokedex 
+                allPokemon={allPokemon} 
+                setAllPokemon={setAllPokemon} 
+                chosenPokemon={chosenPokemon} 
+                setChosenPokemon={setChosenPokemon} 
+                computerPokemon={computerPokemon} 
+                setComputerPokemon={setComputerPokemon}
+              />
+            </Route>
+            <Route path="/prefight">
+              <Prefight                 
+                chosenPokemon={chosenPokemon} 
+                setChosenPokemon={setChosenPokemon} 
+                computerPokemon={computerPokemon} 
+                setComputerPokemon={setComputerPokemon}
+              />
             </Route>
             <Route path="/battle" component={Battle} />
           </Switch>
