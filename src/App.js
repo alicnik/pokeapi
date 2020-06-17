@@ -1,12 +1,57 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { useState, useEffect } from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
+import { Header } from './components/Header'
+import { Welcome } from './components/Welcome'
+import { Pokedex } from './components/Pokedex'
+import { Battle } from './components/Battle'
 
-import 'bulma'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+
+import axios from 'axios'
 import './styles/style.scss'
 
-const App = () => (
-  <h1>Hello Router!</h1>
-)
+const App = () => {
+  const [allPokemon, setAllPokemon] = useState([])
+  const [chosenPokemon, setChosenPokemon] = useState([])
+
+  useEffect(() => {
+    axios
+      .get('https://pokeapi.co/api/v2/pokemon/?limit=151')
+      .then(resolvePokemon)
+  }, [])
+
+  function resolvePokemon(response) {
+    const responseArray = response.data.results.map((pokemon, index) => {
+      const capitalizedName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+      const finalName = capitalizedName.replace(/(-.)$/, match => match === '-m' ? '♂' : '♀')
+      return {
+        name: finalName,
+        url: pokemon.url,
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
+        isChosen: false,
+        index: index
+      }
+    })
+    setAllPokemon(responseArray)
+  }
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <HashRouter>
+        <main>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Welcome} />
+            <Route path="/pokedex">
+              <Pokedex allPokemon={allPokemon} setAllPokemon={setAllPokemon} chosenPokemon={chosenPokemon} setChosenPokemon={setChosenPokemon} />
+            </Route>
+            <Route path="/battle" component={Battle} />
+          </Switch>
+        </main>
+      </HashRouter>
+    </DndProvider>
+  )
+}
 
 export default App
