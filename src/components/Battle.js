@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react'
 
+const audio = new Audio('../assets/battle-theme.mp3')
 
 export const Battle = ({ playerBattleTeam, setPlayerBattleTeam,computerBattleTeam, setComputerBattleTeam }) => {
+  const [music, setMusic] = useState(audio)
+
+  useEffect(() => {
+    music.play()
+
+    return function cleanup() {
+      music.pause()
+      music.currentTime = 0
+      setMusic(audio)
+    }
+  }, [])
 
   const [currentPlayerPokemon, setCurrentPlayerPokemon] = useState({})
   const [currentComputerPokemon, setCurrentComputerPokemon] = useState({})
