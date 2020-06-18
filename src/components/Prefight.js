@@ -34,7 +34,7 @@ function createBattleTeam(initialArray) {
   const team = Promise.all(
     initialArray.map(async (pkmn, index) => {
       return getMoves(pkmn.moves).then(moves => {
-        return new Pokemon(pkmn.name,
+        return new Pokemon(pkmn.name, 
           pkmn.stats[0].base_stat,
           pkmn.stats[1].base_stat,
           pkmn.stats[2].base_stat,
@@ -54,15 +54,15 @@ function createBattleTeam(initialArray) {
 }
 
 
-export const Prefight = ({ chosenPokemon, computerPokemon, playerBattleTeam, setPlayerBattleTeam, computerBattleTeam, setComputerBattleTeam }) => {
+export const Prefight = ({ chosenPokemon, computerPokemon, playerBattleTeam, setPlayerBattleTeam,computerBattleTeam, setComputerBattleTeam }) => {
 
-  useEffect(() => {
+  useEffect(()=>{
     createBattleTeam(chosenPokemon)
       .then(data => setPlayerBattleTeam(data))
-      .catch((err) => console.log(err))
+      .catch((err)=>console.log(err))
     createBattleTeam(computerPokemon)
       .then(data => setComputerBattleTeam(data))
-      .catch((err) => console.log(err))
+      .catch((err)=>console.log(err))
   }, [chosenPokemon, computerPokemon])
 
   return <section id="prefight">
@@ -73,7 +73,7 @@ export const Prefight = ({ chosenPokemon, computerPokemon, playerBattleTeam, set
     <div className="battle-lineup computer-lineup">
       {computerBattleTeam.map((pokemon, index) => {
         return <div key={index} className='battle-lineup-card'>
-          <img src={pokemon.frontSprite} alt={pokemon.name} />
+          <img src={pokemon.frontSprite} alt={pokemon.name}/>
           <h3>{pokemon.name}</h3>
         </div>
       })}
@@ -81,7 +81,7 @@ export const Prefight = ({ chosenPokemon, computerPokemon, playerBattleTeam, set
     <div className="battle-lineup player-lineup">
       {playerBattleTeam.map((pokemon, index) => {
         return <div key={index} className='battle-lineup-card'>
-          <img src={pokemon.frontSprite} alt={pokemon.name} />
+          <img src={pokemon.frontSprite} alt={pokemon.name}/>
           <h3>{pokemon.name}</h3>
         </div>
       })}

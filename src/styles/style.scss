@@ -49,7 +49,7 @@ main {
   // display: flex;
   // flex-wrap: wrap;
 
-  .click-to-start{
+  .click-to-start {
     padding: 30vh;
     // height: 100vh;
   }
@@ -58,15 +58,12 @@ main {
     display: none;
   }
 
-
-  .start-game{
+  .start-game {
     -webkit-animation: slide-in-elliptic-right-fwd 2s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-elliptic-right-fwd 2s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-elliptic-right-fwd 2s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
-
 
   .exit {
     width: 100vw;
@@ -84,58 +81,52 @@ main {
     font-family: var(--gamer-font);
   }
 
-  .prof-oak{
+  .prof-oak {
     position: absolute;
     z-index: 0;
     width: 100vw;
     height: 100vh;
     padding: 5vw;
-      display: flex;
-      flex-wrap: wrap;
-      height: 100%;
-     width: 100%;
-     -webkit-animation: scale-in-center 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
-     animation: scale-in-center 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    -webkit-animation: scale-in-center 5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      3s both;
+    animation: scale-in-center 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s both;
 
-img{
-  flex-shrink: 1;
-  height: 80vh;
-  width: 40vw; 
-}
+    img {
+      flex-shrink: 1;
+      height: 80vh;
+      width: 40vw;
+    }
 
+    .oak-speaks {
+      height: 75vh;
+      width: 30vw;
+      color: var(--pokemon-yellow);
+      font-family: var(--gamer-font);
+      font-size: 3vw;
+    }
 
-.oak-speaks{
-  height: 75vh;
-  width: 30vw;
-  color: var(--pokemon-yellow);
-  font-family: var(--gamer-font);
-  font-size: 3vw;
-}
+    .pokedex-link {
+      width: 20vw;
+      color: whitesmoke;
+      font-family: var(--gamer-font);
 
+      img {
+        height: 25%;
+        width: 50%;
+      }
 
-.pokedex-link{
-  width: 20vw;
-  color: whitesmoke;
-  font-family: var(--gamer-font);
-
-  img{
-    height: 25%;
-    width: 50%;
+      img:hover {
+        -webkit-animation: shake-vertical 2s
+          cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+        animation: shake-vertical 2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+          infinite both;
+      }
+    }
   }
-
-
-  img:hover{
-    -webkit-animation: shake-vertical 2s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
-    animation: shake-vertical 2s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
-  }
-}
-
-
-
-}
-
-
-
 }
 
 #pokedex {
@@ -289,8 +280,8 @@ img{
     var(--battle-stipe-background) 60px
   );
   opacity: 0.7;
-  -webkit-animation: swirl-in-fwd 0.5s ease-out both;
-  animation: swirl-in-fwd 0.5s ease-out both;
+  -webkit-animation: swirl-in-fwd 4s ease-out both;
+  animation: swirl-in-fwd 4s ease-out both;
 
   .opponent-stats h3,
   .player-stats h3 {
@@ -422,6 +413,11 @@ img{
         width: 30vw;
         display: flex;
         font-family: var(--gamer-font);
+        position: relative;
+
+        h3 {
+          padding: 3rem;
+        }
 
         ul {
           height: 100%;
@@ -467,11 +463,9 @@ img{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
   }
 
-
-  .battle-lineup-heading{
+  .battle-lineup-heading {
     height: 15vh;
   }
 
@@ -499,10 +493,7 @@ img{
   }
 
   .bottom-banner {
-
-height: 25vh;
-
-
+    height: 25vh;
 
     h2 {
       left: 2%;
@@ -647,137 +638,120 @@ height: 25vh;
   }
 }
 
-
-
-
-
-
-
-
 @-webkit-keyframes slide-out-elliptic-left-bck {
   0% {
     -webkit-transform: translateX(0) rotateY(0) scale(1);
-            transform: translateX(0) rotateY(0) scale(1);
+    transform: translateX(0) rotateY(0) scale(1);
     -webkit-transform-origin: 2000px 50%;
-            transform-origin: 2000px 50%;
+    transform-origin: 2000px 50%;
     opacity: 1;
   }
   100% {
     -webkit-transform: translateX(-1000px) rotateY(30deg) scale(0);
-            transform: translateX(-1000px) rotateY(30deg) scale(0);
+    transform: translateX(-1000px) rotateY(30deg) scale(0);
     -webkit-transform-origin: -100% 50%;
-            transform-origin: -100% 50%;
+    transform-origin: -100% 50%;
     opacity: 1;
   }
 }
 @keyframes slide-out-elliptic-left-bck {
   0% {
     -webkit-transform: translateX(0) rotateY(0) scale(1);
-            transform: translateX(0) rotateY(0) scale(1);
+    transform: translateX(0) rotateY(0) scale(1);
     -webkit-transform-origin: 2000px 50%;
-            transform-origin: 2000px 50%;
+    transform-origin: 2000px 50%;
     opacity: 1;
   }
   100% {
     -webkit-transform: translateX(-1000px) rotateY(30deg) scale(0);
-            transform: translateX(-1000px) rotateY(30deg) scale(0);
+    transform: translateX(-1000px) rotateY(30deg) scale(0);
     -webkit-transform-origin: -100% 50%;
-            transform-origin: -100% 50%;
+    transform-origin: -100% 50%;
     opacity: 1;
   }
 }
 
-
-
-
 @-webkit-keyframes scale-in-center {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
 @keyframes scale-in-center {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
-
-
 
 @-webkit-keyframes shake-vertical {
   0%,
   100% {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
   10%,
   30%,
   50%,
   70% {
     -webkit-transform: translateY(-8px);
-            transform: translateY(-8px);
+    transform: translateY(-8px);
   }
   20%,
   40%,
   60% {
     -webkit-transform: translateY(8px);
-            transform: translateY(8px);
+    transform: translateY(8px);
   }
   80% {
     -webkit-transform: translateY(6.4px);
-            transform: translateY(6.4px);
+    transform: translateY(6.4px);
   }
   90% {
     -webkit-transform: translateY(-6.4px);
-            transform: translateY(-6.4px);
+    transform: translateY(-6.4px);
   }
 }
 @keyframes shake-vertical {
   0%,
   100% {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
   10%,
   30%,
   50%,
   70% {
     -webkit-transform: translateY(-8px);
-            transform: translateY(-8px);
+    transform: translateY(-8px);
   }
   20%,
   40%,
   60% {
     -webkit-transform: translateY(8px);
-            transform: translateY(8px);
+    transform: translateY(8px);
   }
   80% {
     -webkit-transform: translateY(6.4px);
-            transform: translateY(6.4px);
+    transform: translateY(6.4px);
   }
   90% {
     -webkit-transform: translateY(-6.4px);
-            transform: translateY(-6.4px);
+    transform: translateY(-6.4px);
   }
 }
-
-
-
-
-
 
 @media only screen and (min-height: 1000px) {
   #pokedex .pokedex-card {

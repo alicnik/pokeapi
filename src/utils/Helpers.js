@@ -148,6 +148,7 @@ export class Pokemon {
     this.hasFainted = false
     this.willFaint = false
     this.missed = false
+    this.hasWon = false
   }
 
   reduceHp(amount) {
@@ -181,9 +182,10 @@ export class Pokemon {
     if (this.moves[move]?.ppLeft < 1) {
       console.log(this.name)
       console.log(move)
-      this.isFighting = true
-      this.isAttacking = false
-      this.hasAttacked = false
+      console.log(this.isFighting, this.isAttacking, this.hasAttacked)
+      // this.isFighting = true
+      // this.isAttacking = false
+      // this.hasAttacked = false
       alert('No PP left for that move!')
       return 0
     }

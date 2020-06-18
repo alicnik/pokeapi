@@ -67,7 +67,7 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
     // console.log(history)
     
     if (currentComputerInstance?.hasFainted && computerBattleTeam.filter(pokemon => !pokemon.hasFainted).length < 1) {
-      console.log('Computer fainted and redirecting')
+      alert('YOU WON!')
     } else if (currentComputerInstance?.hasFainted) {
       setComputerBattleTeam(previous => {
         const copy = [...previous]
@@ -111,7 +111,7 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
           <p>HP: {playerBattleTeam[currentPlayerPokemon?.index]?.currentHp || '0'}/{currentPlayerPokemon?.hp || '0'}</p>
         </div>
 
-        <button
+        <button style={{ position: 'absolute', border: 'none', backgroundColor: 'transparent', color: 'grey' }}
           onClick={() => {
             setPlayerBattleTeam(previous => {
               const copy = [...previous]
@@ -143,6 +143,7 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
                   }}
                   onMouseLeave={() => setMoveHovered(false)}
                   onClick={() => {
+                    if (currentPlayerPokemon.moves[currentPlayerMove].pp < 1) return
                     computerBattleTeam[currentComputerPokemon.index].willThisPokemonFaint(playerBattleTeam[currentPlayerPokemon.index]?.attack(currentPlayerMove, currentComputerPokemon))
                     setPlayerBattleTeam(previous => updateStatus(previous, currentPlayerPokemon.index, 'isFighting', false))
                     setPlayerBattleTeam(previous => updateStatus(previous, currentPlayerPokemon.index, 'isAttacking', true))
@@ -176,6 +177,8 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
                         copy[newPokemonIndex].isOut = true
                         copy[newPokemonIndex].isChoosing = true
                         copy[currentPlayerPokemon.index].isOut = false
+                        copy[newPokemonIndex].isSwitching = false
+                        copy[currentPlayerPokemon.index].isSwitching = false
                         return copy
                       })
                   }}
@@ -197,8 +200,10 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
                         const copy = [...previousState]
                         copy[newPokemonIndex].isOut = true
                         copy[newPokemonIndex].isChoosing = true
+                        copy[newPokemonIndex].isSwitching = false
                         copy[currentPlayerPokemon.index].isChoosing = false
                         copy[currentPlayerPokemon.index].isOut = false
+                        copy[currentPlayerPokemon.index].isSwitching = false
                         return copy
                       })
                     }}
@@ -230,15 +235,17 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
                 POKéMON
               </li>
               <li>BAG</li>
-              <li onClick={() => {
-                setAllPokemon(previousState => {
-                  return previousState.map((pokemon) => ({
-                    ...pokemon,
-                    isChosen: false
-                  }))
-                })
-                setChosenPokemon([])
-              }}><Link to='/pokedex'>RUN</Link></li>
+              <li 
+                onClick={() => {
+                  setAllPokemon(previousState => {
+                    return previousState.map((pokemon) => ({
+                      ...pokemon,
+                      isChosen: false
+                    }))
+                  })
+                  setChosenPokemon([])
+                }}
+              ><Link to='/pokedex'>RUN</Link></li>
             </ul>}
             {currentPlayerPokemon.isFighting && <ul>
               <p>PP</p>
@@ -258,12 +265,13 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
                 setPlayerBattleTeam(previous => updateStatus(previous, currentPlayerPokemon.index, 'isChoosing', true))
               }}
             >NEXT</h3>}
-            {currentPlayerPokemon?.hasAttacked && <h3
+            {currentPlayerPokemon?.hasAttacked && !currentPlayerPokemon?.hasWon && <h3
               onClick={() => {
                 setPlayerBattleTeam(previous => updateStatus(previous, currentPlayerPokemon.index, 'hasAttacked', false))
                 setPlayerBattleTeam(previous => !currentPlayerPokemon.hasFainted ? updateStatus(previous, currentPlayerPokemon.index, 'isChoosing', true) : previous)
               }}
             >NEXT</h3>}
+            {currentPlayerPokemon?.hasWon && <Link to='/pokedex'><h3>START OVER</h3></Link>}
           </div>
 
         </div>
