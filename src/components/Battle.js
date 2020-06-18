@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const audio = new Audio('../assets/battle-theme.mp3')
+audio.volume = 0.5
 
 export const Battle = ({ playerBattleTeam, setPlayerBattleTeam,computerBattleTeam, setComputerBattleTeam }) => {
   const [music, setMusic] = useState(audio)
