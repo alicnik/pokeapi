@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Pokemon } from '../utils/Helpers'
+
+
+//TODO How can we make sure this always returns 4 moves?
 
 async function getMoves(arrayOfMoves) {
   const moves = {}
   for (let i = 0; i < 4; i++) {
     const url = arrayOfMoves.randomIndex().move.url
     resolveMove(url).then(data => {
-      Object.assign(moves, { [data.name]: { ...data } })
+      if (data.power > 0) {
+        Object.assign(moves, { [data.name]: { ...data, ppLeft: data.pp } })
+      }
     })
   }
   return moves
@@ -22,8 +27,8 @@ const resolveMove = async (moveUrl) => {
 
 function createBattleTeam(initialArray) {
   const team = Promise.all(
-    initialArray.map(async pkmn => {
-      return getMoves(pkmn.moves).then(data => {
+    initialArray.map(async (pkmn, index) => {
+      return getMoves(pkmn.moves).then(moves => {
         return new Pokemon(pkmn.name, 
           pkmn.stats[0].base_stat,
           pkmn.stats[1].base_stat,
@@ -31,10 +36,11 @@ function createBattleTeam(initialArray) {
           pkmn.stats[3].base_stat,
           pkmn.stats[4].base_stat,
           pkmn.stats[5].base_stat,
-          [...pkmn.types],
+          [pkmn.types.map(typeObj => typeObj.type.name)],
           pkmn.sprites.back_default,
           pkmn.sprites.front_default,
-          { data }
+          moves,
+          index
         )
       })
     })
@@ -43,13 +49,9 @@ function createBattleTeam(initialArray) {
 }
 
 
-export const Prefight = ({ chosenPokemon, computerPokemon }) => {
-
-  const [playerBattleTeam, setPlayerBattleTeam] = useState([])
-  const [computerBattleTeam, setComputerBattleTeam] = useState([])
+export const Prefight = ({ chosenPokemon, computerPokemon, playerBattleTeam, setPlayerBattleTeam,computerBattleTeam, setComputerBattleTeam }) => {
 
   useEffect(()=>{
-    console.log(chosenPokemon)
     createBattleTeam(chosenPokemon)
       .then(data => setPlayerBattleTeam(data))
       .catch((err)=>console.log(err))

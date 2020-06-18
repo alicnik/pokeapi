@@ -13,7 +13,8 @@ export const PokemonCard = ({ pokemon, index, handleClick }) => {
     collect: monitor => ({ isDragging: !!monitor.isDragging() })
   })
 
-  return <> {console.log(preview)}
+  return <> 
+  {/* {console.log(preview)} */}
   {/* Drag preview image below lets you change the preview of what is being dragged, but not the style it seems... */}
     {/* <DragPreviewImage connect={preview} src={pokemon.image} className="sway"  style={{ animation: 'begindrag 16s infinite' }}/> */}
     < div

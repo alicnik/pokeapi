@@ -5,6 +5,7 @@ import { Welcome } from './components/Welcome'
 import { Pokedex } from './components/Pokedex'
 import { Battle } from './components/Battle'
 import { Prefight } from './components/Prefight'
+// import { samplePlayerBattleTeam, sampleComputerBattleTeam } from './utils/Helpers'
 
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -16,6 +17,8 @@ const App = () => {
   const [allPokemon, setAllPokemon] = useState([])
   const [chosenPokemon, setChosenPokemon] = useState([])
   const [computerPokemon, setComputerPokemon] = useState([])
+  const [playerBattleTeam, setPlayerBattleTeam] = useState([])
+  const [computerBattleTeam, setComputerBattleTeam] = useState([])
 
   useEffect(() => {
     axios
@@ -61,9 +64,20 @@ const App = () => {
                 setChosenPokemon={setChosenPokemon} 
                 computerPokemon={computerPokemon} 
                 setComputerPokemon={setComputerPokemon}
+                playerBattleTeam={playerBattleTeam}
+                setPlayerBattleTeam={setPlayerBattleTeam}
+                computerBattleTeam={computerBattleTeam}
+                setComputerBattleTeam={setComputerBattleTeam} 
               />
             </Route>
-            <Route path="/battle" component={Battle} />
+            <Route path="/battle">
+              <Battle 
+                playerBattleTeam={playerBattleTeam}
+                setPlayerBattleTeam={setPlayerBattleTeam}
+                computerBattleTeam={computerBattleTeam}
+                setComputerBattleTeam={setComputerBattleTeam}
+              />
+            </Route>
           </Switch>
         </main>
       </HashRouter>

@@ -75,22 +75,16 @@ main {
     user-select: none;
     border-radius: 5px;
 
-
     h3 {
       margin-top: -1vh;
-       font-size: 60%;
+      font-size: 60%;
     }
 
     h3,
     img {
       pointer-events: none;
     }
-
-
-
   }
-
-  
 
   .pokedex-card:active:hover {
     box-shadow: 3px 3px 5px white, -3px -3px 5px black;
@@ -116,33 +110,31 @@ main {
 
     .chosen-pokemon-header {
       width: 25vw;
-      
+
       margin: 0 auto;
       margin-top: 2vh;
 
-      span{
+      span {
         display: flex;
         flex-direction: row;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
         width: 25vw;
-      
 
-      img {
-        width: 33%;
-      
-      }
+        img {
+          width: 33%;
+        }
 
-      h2 {
-        width: 50%;
-        text-align: center;
-        font-size: 3vw;
-        // line-height: 3rem;
-        text-transform: uppercase;
-        padding-top: 0.4rem;
+        h2 {
+          width: 50%;
+          text-align: center;
+          font-size: 3vw;
+          // line-height: 3rem;
+          text-transform: uppercase;
+          padding-top: 0.4rem;
+        }
       }
-    }
     }
 
     .click-to-choose {
@@ -154,19 +146,14 @@ main {
       width: 70%;
     }
 
-    .pokedex-card{
+    .pokedex-card {
       width: 12vw;
       height: 15vh;
 
       h3 {
         font-size: 50%;
-        
       }
-
-
     }
-
-
 
     button {
       width: 25vw;
@@ -179,21 +166,14 @@ main {
       text-transform: uppercase;
       animation: blinker 1.5s linear infinite;
     }
-
-   
+  }
 }
+
+@keyframes blinker {
+  20% {
+    opacity: 0.1;
   }
-
-
-  @keyframes blinker {
-    20% {
-      opacity: 0.1;
-    }
-  }
-  
-
-
-
+}
 
 #battle {
   height: 100vh;
@@ -213,163 +193,168 @@ main {
     var(--battle-stipe-background) 60px
   );
   opacity: 0.7;
-	-webkit-animation: swirl-in-fwd 2s ease-out both;
-	        animation: swirl-in-fwd 2s ease-out both;
+  -webkit-animation: swirl-in-fwd 2s ease-out both;
+  animation: swirl-in-fwd 2s ease-out both;
 
-.opponent{
-  width: 100vw;
-  height: 33vh;
-  border: 1px black solid;
-  display: flex;
+  .opponent-stats h3,
+  .player-stats h3 {
+    text-transform: capitalize;
+  }
 
+  .opponent {
+    width: 100vw;
+    height: 33vh;
+    border: 1px black solid;
+    display: flex;
 
-  .opponent-stats{
-    margin: 5vh 0 0 1vw;
-    height: 11vh;
-    border: 3px solid black;
-    width: 49vw;
+    .opponent-stats {
+      margin: 5vh 0 0 1vw;
+      height: 11vh;
+      border: 3px solid black;
+      width: 49vw;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: white;
+
+      p {
+        width: 100%;
+        text-align: right;
+        font-family: var(--gamer-font);
+      }
+
+      h3 {
+        margin-left: 1vw;
+        width: 100%;
+        font-family: var(--gamer-font);
+      }
+
+      progress {
+        width: 100%;
+        margin: -1.5vh 1vw 0 10vw;
+      }
+    }
+
+    .opponent-sprite {
+      height: 33vh;
+      width: 50vw;
+      display: flex;
+
+      img {
+        margin-left: 15vw;
+        width: 75%;
+      }
+    }
+  }
+
+  .player {
+    height: 67vh;
+    // background-color: blue;
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
+    // flex-direction: column;
 
+    .player-stats {
+      margin-top: 5vh;
+      margin-right: 1vw;
+      height: 11vh;
+      border: 3px solid black;
+      background-color: white;
+      width: 49vw;
 
-    p{
-      width: 100%;
-      text-align: right;
-      font-family: var(--gamer-font);
+      h3 {
+        margin-left: 1vw;
+        font-family: var(--gamer-font);
+      }
+
+      p {
+        text-align-last: right;
+        font-family: var(--gamer-font);
+      }
+
+      progress {
+        width: 90%;
+        margin: -2vh 0 0 4vw;
+      }
     }
 
-h3{
-  margin-left: 1vw;
-  width: 100%;
-  font-family: var(--gamer-font);
-}
+    .player-sprite {
+      height: 40vh;
+      width: 50vw;
+      display: flex;
 
-progress{
-  width: 100%;
-  margin: -1.5vh 1vw 0 10vw;
-}
+      img {
+        margin-top: 10vh;
+        margin-left: 10vw;
+        width: 75%;
+      }
+    }
 
+    .player-options {
+      height: 27vh;
+      width: 100vw;
+      padding: 2vh;
+      display: flex;
+      cursor: default;
+      user-select: none;
 
-  }
+      .options-announce {
+        border: 3px solid black;
+        height: 23vh;
+        width: 66vw;
+        background-color: var(--battle-stipe-background);
+        font-family: var(--gamer-font);
+        padding: 2vw;
+        margin: 0;
+        font-size: 1.2rem;
 
+        ul {
+          text-transform: uppercase;
+          height: 100%;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
 
+        li:hover {
+          text-decoration: underline;
+        }
+      }
 
-  .opponent-sprite{
-    height: 33vh;
-    width: 50vw;
-    display: flex;
-   
+      .options-choices {
+        border: 3px solid black;
+        margin-left: 1vw;
+        width: 30vw;
+        display: flex;
+        font-family: var(--gamer-font);
 
-    img{
-      margin-left: 15vw; 
-      width: 75%;
+        ul {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          padding: 3vw 0 0 2vw;
+
+          :hover {
+            text-decoration: underline;
+            list-style-position: inside;
+            list-style-image: url(../assets/pokeball.svg);
+          }
+          p {
+            text-transform: uppercase;
+          }
+          li,
+          p {
+            flex: 1 0 50%;
+            font-size: 1.2rem;
+            // height: 50%;
+            // text-align: left;
+            // background-color: var(--battle-stipe-background);
+          }
+        }
+      }
     }
   }
-}
-
-.player{
-  height: 67vh;
-  // background-color: blue;
-  display: flex;
-  flex-wrap: wrap;
-  // flex-direction: column;
-
-.player-stats{
-  margin-top: 5vh;
-  margin-right: 1vw;
-  height: 11vh;
-  border: 3px solid black;
-  background-color: white;
-  width: 49vw;
-
-
-  h3{
-    margin-left: 1vw;
-    font-family: var(--gamer-font);
-  }
-
-  p{
-    text-align-last: right;
-    font-family: var(--gamer-font);
-  }
-
-  progress{
-    width: 90%;
-    margin: -2vh 0 0 4vw;
-    
-  }
-
-}
-
-.player-sprite{
-  height: 40vh;
-  width: 50vw;
-  display: flex;
-
-  img {
-    margin-top: 10vh;
-    margin-left: 10vw;
-    width: 75%;
-  }
-}
-
-.player-options{
-
-  
-  height: 27vh;
-  width: 100vw;
-  padding: 2vh;
-  display: flex;
-
-
-.options-announce{
-  border:3px solid black;
-  height: 23vh;
-  width: 66vw;
-  background-color: var(--battle-stipe-background);
-  font-family: var(--gamer-font);
-  padding: 2vw;
-  margin: 0;
-
-}
-
-.options-choices{
-  
-  border:3px solid black;
-  margin-left: 1vw;
-  width: 30vw;
-  display: flex;
-  font-family: var(--gamer-font);
-  
-li{
-  padding-left: 1vw;
-  height: 33%;
-  text-align: left;
-  background-color: var(--battle-stipe-background);
-
- 
-  }
-
-  ul{
-    direction: rtl;
-    height: 100%;
-    width: 100%;
-    :hover {
-      text-decoration: underline;
-      list-style-position: inside;
-      list-style-image: url(../assets/pokeball.svg);
-  }
-}
-}
-
-}
-
-}
-
-
-
-
 }
 
 #prefight {
@@ -432,8 +417,8 @@ li{
     border-bottom: 3px black solid;
   }
 
-  .computer-lineup {
-  }
+  // .computer-lineup {
+  // }
 
   .player-lineup {
     padding-bottom: 1rem;
@@ -460,6 +445,9 @@ li{
   pointer-events: none;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
 
 .sway {
   color: blue;
@@ -467,65 +455,54 @@ li{
   transform-origin: 50% 100% 0;
 }
 
-
 @keyframes begindrag {
   0% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
   10% {
-    transform: rotate(-8deg)
+    transform: rotate(-8deg);
   }
   30% {
-    transform: rotate(6deg)
+    transform: rotate(6deg);
   }
   55% {
-    transform: rotate(-3deg)
+    transform: rotate(-3deg);
   }
   80% {
-    transform: rotate(1deg)
+    transform: rotate(1deg);
   }
   100% {
-    transform: rotate(-1deg)
+    transform: rotate(-1deg);
   }
 }
 
-
-
-
-
 @-webkit-keyframes swirl-in-fwd {
   0% {
-    -webkit-transform: rotate(-540deg) scale(.25);
-            transform: rotate(-540deg) scale(.25);
+    -webkit-transform: rotate(-540deg) scale(0.25);
+    transform: rotate(-540deg) scale(0.25);
     opacity: 0;
   }
   100% {
-    -webkit-transform: rotate(0) scale(.25);
-            transform: rotate(0) scale(.25);
+    -webkit-transform: rotate(0) scale(0.25);
+    transform: rotate(0) scale(0.25);
     opacity: 1;
   }
 }
 @keyframes swirl-in-fwd {
   0% {
-    -webkit-transform: rotate(-540deg) scale(.25);
-            transform: rotate(-540deg) scale(.25);
+    -webkit-transform: rotate(-540deg) scale(0.25);
+    transform: rotate(-540deg) scale(0.25);
     opacity: 0;
   }
   100% {
-    -webkit-transform: rotate(0) scale(.25);
-            transform: rotate(0) scale(1);
+    -webkit-transform: rotate(0) scale(0.25);
+    transform: rotate(0) scale(1);
     opacity: 1;
   }
 }
 
-
-
-
 @media only screen and (min-height: 1000px) {
-
-#pokedex .pokedex-card{
-  height: 5vh !important;
-}
-
-
+  #pokedex .pokedex-card {
+    height: 5vh !important;
+  }
 }
