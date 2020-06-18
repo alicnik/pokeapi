@@ -76,6 +76,8 @@ const App = () => {
                 setPlayerBattleTeam={setPlayerBattleTeam}
                 computerBattleTeam={computerBattleTeam}
                 setComputerBattleTeam={setComputerBattleTeam}
+                setAllPokemon={setAllPokemon}
+                setChosenPokemon={setChosenPokemon}
               />
             </Route>
           </Switch>

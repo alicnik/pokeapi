@@ -212,8 +212,8 @@ main {
     var(--battle-stipe-background) 60px
   );
   opacity: 0.7;
-  -webkit-animation: swirl-in-fwd 4s ease-out both;
-  animation: swirl-in-fwd 4s ease-out both;
+  -webkit-animation: swirl-in-fwd 0.5s ease-out both;
+  animation: swirl-in-fwd 0.5s ease-out both;
 
   .opponent-stats h3,
   .player-stats h3 {
@@ -297,7 +297,7 @@ main {
     }
 
     .player-sprite {
-      height: 40vh;
+      height: 25vh;
       width: 50vw;
       display: flex;
 
@@ -359,16 +359,20 @@ main {
             list-style-position: inside;
             list-style-image: url(../assets/pokeball.svg);
           }
+
           p {
             text-transform: uppercase;
           }
+
+          li a {
+            color: #4a4a4a;
+            cursor: default;
+          }
+
           li,
           p {
             flex: 1 0 50%;
             font-size: 1.2rem;
-            // height: 50%;
-            // text-align: left;
-            // background-color: var(--battle-stipe-background);
           }
         }
       }
