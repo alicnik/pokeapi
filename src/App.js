@@ -45,7 +45,7 @@ const App = () => {
     <DndProvider backend={HTML5Backend}>
       <HashRouter>
         <main>
-          <Header />
+          {/* <Header /> */}
           <Switch>
             <Route exact path="/" component={Welcome} />
             <Route path="/pokedex">

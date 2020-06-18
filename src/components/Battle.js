@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const audio = new Audio('../assets/battle-theme.mp3')
+audio.volume = 0.5
 
 export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPlayerBattleTeam,computerBattleTeam, setComputerBattleTeam }) => {
   const [music, setMusic] = useState(audio)
