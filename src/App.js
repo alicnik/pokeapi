@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
-import { Header } from './components/Header'
 import { Welcome } from './components/Welcome'
 import { Pokedex } from './components/Pokedex'
 import { Battle } from './components/Battle'
