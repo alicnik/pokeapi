@@ -4,6 +4,7 @@ import { useDrop } from 'react-dnd'
 import { ItemTypes } from '../utils/Helpers'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import pokemonBag from '../assets/pokemon-bag.svg'
 
 export const Pokedex = ({ allPokemon, setAllPokemon, chosenPokemon, setChosenPokemon, computerPokemon, setComputerPokemon }) => {
 
@@ -86,7 +87,7 @@ export const Pokedex = ({ allPokemon, setAllPokemon, chosenPokemon, setChosenPok
       <div ref={drop} className="chosen-pokemon">
         <div className="chosen-pokemon-header">
           <span>
-            <img src="../assets/pokemon-bag.svg" alt="pokemon bag" />
+            <img src={pokemonBag} alt="pokemon bag" />
             <h2>Your team</h2>
           </span>
         </div>

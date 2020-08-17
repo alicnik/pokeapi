@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import pokeBall from '../assets/pokeball.svg'
 
 const audio = new Audio('../assets/battle-theme.mp3')
 audio.volume = 0.5
@@ -97,13 +98,13 @@ export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPl
           <p>HP: {computerBattleTeam[currentComputerPokemon?.index]?.currentHp || '0'}/{currentComputerPokemon?.hp || '0'}</p>
         </div>
         <div className="opponent-sprite">
-          <img src={currentComputerPokemon?.frontSprite || '../assets/pokeball.svg'}></img>
+          <img src={currentComputerPokemon?.frontSprite || pokeBall}></img>
         </div>
       </div>
 
       <div className="player">
         <div className="player-sprite">
-          <img src={currentPlayerPokemon?.backSprite || '../assets/pokeball.svg'}></img>
+          <img src={currentPlayerPokemon?.backSprite || pokeBall}></img>
         </div>
         <div className="player-stats">
           <h3>{currentPlayerPokemon?.name || ''}</h3>
