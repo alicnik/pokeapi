@@ -1,6 +1,6 @@
 # Project 2 - 48-hour hackathon
 
-NB I have left the project as it was after the end of 48 hours so as to better evidence what we were able to achieve within the timeframe.
+NB Save some essential bug fixes associated with file-loader imports, I have left the project as it was after the end of 48 hours so as to better evidence what we were able to achieve within the timeframe.
 
 ## Brief
 
