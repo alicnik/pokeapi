@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const SRC = path.resolve(__dirname, 'src')
 
 module.exports = {
   entry: './src/index.js',
@@ -13,7 +14,7 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.css$/, loader: ['style-loader', 'css-loader'] },
       { test: /\.s(a|c)ss$/, loader: ['style-loader', 'css-loader', 'sass-loader'] },
-      { test: /\.(png|jpe?g|gif|mp3)$/i, loader: 'file-loader' },
+      { test: /\.(png|jpe?g|gif|mp3)$/i, include: SRC, loader: 'file-loader' },
       { test: /\.svg/, use: { loader: 'svg-url-loader', options: {} } }
     ]
   },
