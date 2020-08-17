@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import pokeBall from '../assets/pokeball.svg'
+import battleTheme from '../assets/battle-theme.mp3'
 
-const audio = new Audio('../assets/battle-theme.mp3')
+const audio = new Audio(battleTheme)
 audio.volume = 0.5
 
 export const Battle = ({ setAllPokemon, playerBattleTeam,setChosenPokemon, setPlayerBattleTeam,computerBattleTeam, setComputerBattleTeam }) => {
