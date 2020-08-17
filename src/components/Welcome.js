@@ -3,8 +3,12 @@ import axios from 'axios'
 import ReactTypingEffect from 'react-typing-effect'
 import Speaking from './Speaking'
 import { Link } from 'react-router-dom'
+import pokemonTheme from '../assets/pokemon-theme.mp3'
+import pokemonLogo from '../assets/pokemon-logo.svg'
+import profOakImg from '../assets/prof-oak.gif'
+import pokedex from '../assets/pokedex.png'
 
-const audio = new Audio('../assets/pokemon-theme.mp3')
+const audio = new Audio(pokemonTheme)
 audio.volume = 0.5
 
 export const Welcome = () => {
@@ -36,7 +40,7 @@ export const Welcome = () => {
     <div id="welcome">
 
       <div className={`${startGame && profOak ? 'exit' : startGame ? 'start-game' : 'logo'}`}>
-        <img src="../assets/pokemon-logo.svg" alt="Pokemon logo" />
+        <img src={pokemonLogo} alt="Pokemon logo" />
       </div>
       <div className={`${startGame ? 'logo' : 'click-to-start'}`} onClick={handleClick}>
         <h2>Click to Start!</h2>
@@ -46,10 +50,10 @@ export const Welcome = () => {
         <div className='oak-speaks'>
           {profOak}
         </div>
-        <img src="../assets/prof-oak.gif" alt="prof-oak" />
+        <img src={profOakImg} alt="prof-oak" />
 
         <div className="pokedex-link">
-          <Link to='/pokedex'> <img src="../assets/pokedex.png" alt="prof-oak" /> </Link>
+          <Link to='/pokedex'> <img src={pokedex} alt="prof-oak" /> </Link>
           <p>Pokédex</p>
         </div>
       </div>
