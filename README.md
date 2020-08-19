@@ -31,10 +31,8 @@ With my colleague, Michael Adair, we decided to utilise the Pokemon API, due pri
 1. Pair programming using VS Code Live Share;
 2. Distributed development using Git source control;
 3. Allocation of responsibilities along following general lines:
-
-- I managed the React routing logic, general functionality, and battle logic;
-- Michael Adair managed the design and user experience, with particular focus on emulating a nostalgic "feel";
-
+   - I managed the React routing logic, general functionality, and battle logic;
+   - Michael Adair managed the design and user experience, with particular focus on emulating a nostalgic "feel";
 4. Feature-driven development with minimal crossover so as to avoid merge conflicts, particularly important given time constraints;
 5. DRY code throughout;
 6. Emphasis on declarative and readable code, notwithstanding time constraints.
